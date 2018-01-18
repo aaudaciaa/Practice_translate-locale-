@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t('.list') %></h1>
+<p>locale에 들어가 있는 것을 출력 : <%= @locale %></p>
+<p><%= t('.hello') %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('.title') %></th>
+      <th><%= t('.content') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.index %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('.newpost'), new_post_path %>
